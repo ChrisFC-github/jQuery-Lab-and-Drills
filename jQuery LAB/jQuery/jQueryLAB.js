@@ -40,7 +40,7 @@ $(document).ready(function() { // 5
         var nameSpanner = $('<span> Chris C</span>');
         $(nameSpanner).insertAfter("#spanner");
         } else {
-
+            alert("Name has already been displayed");
         }
     });
 });
@@ -56,6 +56,6 @@ $("#btnFriends").click(function () {
     $("ul").append(li);
     b++;
     } else {
-
+        alert("I wonder if he has more friends");
     }
 });
