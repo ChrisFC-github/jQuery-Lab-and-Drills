@@ -18,7 +18,9 @@ $(document).keyup(function (event) { // default lower KB reverts when Shift is o
 });
 // highlight white on key release
 $(document).keyup(function (event) {
-    $("#" + event.which).css("background-color", "white");
+    let key = event.which;
+    let asciiLetter = event.key.charCodeAt(0);
+    $(`#${asciiLetter}`).css("background-color", "white");
 });
 let sentences = ['Time for an adventure with Jake the Dog', 'Bacon pancakes makin bacon pancakes', 'Take some bacon and Ill put it in a pancake', 'Bacon pancakes thats what its gonna make', 'Bacon pancakes'];
 let mistakes = 0;
