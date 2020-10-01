@@ -1,3 +1,16 @@
+let sentences = ['Time for an adventure with Jake the Dog', 'Bacon pancakes makin bacon pancakes', 'Take some bacon and Ill put it in a pancake', 'Bacon pancakes thats what its gonna make', 'Bacon pancakes'];
+let mistakes = 0;
+let marginShift = 0;
+let timeElapsed = 0;
+let letterScore = 0;
+let letterIndex = 0;
+let totalSeconds = 0;
+let letterCounter1 = 0;
+let letterCounter2 = 1;
+const sentenceDisplay = document.querySelector('#sentence');
+const feedbackDisplay = document.querySelector('#feedback');
+const yellowBlock = document.querySelector('#target-letter');
+const letterDisplay = document.querySelector('#target-letter');
 $(document).ready(function () { // hides uppercase keyboard upon page load but not using the content loaded
     $('#keyboard-upper-container').hide();
     $('.well').css("background-color", "white");
@@ -22,26 +35,13 @@ $(document).keyup(function (event) {
     let asciiLetter = event.key.charCodeAt(0);
     $(`#${asciiLetter}`).css("background-color", "white");
 });
-let sentences = ['Time for an adventure with Jake the Dog', 'Bacon pancakes makin bacon pancakes', 'Take some bacon and Ill put it in a pancake', 'Bacon pancakes thats what its gonna make', 'Bacon pancakes'];
-let mistakes = 0;
-let timeElapsed = 0;
-let letterScore = 0;
-let letterIndex = 0;
-var totalSeconds = 0;
-let marginShift = 0;
-let letterCounter1 = 0;
-let letterCounter2 = 1;
-const sentenceDisplay = document.querySelector('#sentence');
-const feedbackDisplay = document.querySelector('#feedback');
-const yellowBlock = document.querySelector('#target-letter');
-const letterDisplay = document.querySelector('#target-letter');
 //keypress does not support SPECIAL KEYS LIKE keys such as tab, shift, ctrl, backspace
 // can do 'keyup keydown', before calling function but not all browsers support this
 // normal keys + special keys - I NEED HELP XD
 // Records jQuery key events and wraps code for defining target letter, starting a new sentence, checking for correct typed letters/mistakes, and ending the game  
 $(document).keypress("keydown", function (event) {
     marginShift = marginShift + 16.5;
-    $('#yellow-block').css("margin-left",marginShift+"px");
+    $('#yellow-block').css("margin-left", marginShift + "px");
     timer = setInterval(setTime, 1000); // 1 sec interval
     function setTime() {
         ++totalSeconds;
@@ -73,9 +73,9 @@ $(document).keypress("keydown", function (event) {
     console.log("Current score: " + letterScore)
     console.log("Mistakes: " + mistakes);
     // if statement used to bring target letter back to the first character of the string value everytime a sentence is completed
-    if (letterCounter1 == sentences[letterIndex].length-1) {
+    if (letterCounter1 == sentences[letterIndex].length - 1) {
         marginShift = -16.5;
-        }
+    }
     if (letterCounter1 == sentences[letterIndex].length) {
         letterIndex++;
         sentenceDisplay.innerHTML = sentences[letterIndex]
